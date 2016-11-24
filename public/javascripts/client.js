@@ -1,12 +1,19 @@
 //Archivo de Control de la Aplicacion
 
-//Funciones de Inicio
-$("#contact_list").on('pagecreate', contact_list_onLoad );
+//Cuando JqueryMobile se ha cargado
+  //Funciones de Inicio
+  $("#contact_list").on('pagecreate', contact_list_onLoad );
+  $("#contact_detail").on('pagecreate', function(){ _dtlCargado = true;} );
+  $("#contact_list_mainlist").on('click','a',contact_list_mainList_onclick);
+
+
+
 
 // Handlers
 var _currectPage = 1;
-var _numPersonas = 10;
-
+var _numPersonas = 9999;
+var _currentContactId = "";
+var _dtlCargado = false;
 function contact_list_onLoad(e){
     obtenerPersonas(_currectPage, _numPersonas,
         function(err, personas){
@@ -23,7 +30,34 @@ function contact_list_onLoad(e){
 
         }
       );
-}
+} //contact_list_onLoad
+
+  function contact_list_mainList_onclick(e){
+    e.preventDefault();
+    e.stopPropagation();
+    var sender = $(this);
+    _currentContactId = sender.data("id");
+    console.log(_currentContactId);
+    obtenerPersonaActual(_currentContactId, function(err, persona){
+      if(err) return console.log("Error al cargar persona");
+      console.log(persona);
+      $("#dtlNombre").html(persona.nombre);
+      $("#dtlApellido").html(persona.apellido);
+      var direccionesHtml = "";
+      if(persona.direcciones && true){
+         direccionesHtml = persona.direcciones.map(
+            function(direccion,i){
+              return "<li><p>"+direccion.direccion+"</p><p>"+direccion.telefono+"</p><p>"+direccion.correo+"</p></li>";
+            }
+          ).join("");
+        }
+      direccionesHtml += '<li><a href="#nueva_direccion">Agregar Dirección</a></li>';
+      console.log(direccionesHtml);
+      var lv = $("#dtlDirecciones").html(direccionesHtml);
+      if(_dtlCargado) lv.listview("refresh");
+      changeTo("contact_detail");
+    });
+  }//contact_list_mainList_onclick
 
 
 //Ajax events
@@ -53,4 +87,26 @@ function obtenerPersonas(page, numPersonas, despues){
                     }
       }
     );
+} //obtenerPersonas
+
+function obtenerPersonaActual(currentid, despues){
+      $.ajax(
+        {
+          "url":"api/persona/" + currentid,
+          "method":"get",
+          "data":{},
+          "success": function(data, txtSuccess, xhrq){
+                          despues(null, data);
+                      },
+          "error": function(xhrq, errTxt, data){
+                          despues(true, null);
+                      }
+        }
+      );
+}
+
+
+//utilities
+function changeTo(to){
+  $(":mobile-pagecontainer").pagecontainer("change","#" + to);
 }
