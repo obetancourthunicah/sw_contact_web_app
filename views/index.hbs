@@ -43,3 +43,49 @@
     </div>
   </div>
 </div>
+<!-- nuevo_contacto -->
+<div data-role="page" id="nuevo_contacto">
+    <div data-role="header" data-position="fixed">
+        <h1>Agregar Nuevo Contacto</h1>
+    </div>
+    <div role="main" class="ui-content">
+      <div id="nc_form">
+          <label for="nc_nombre">Nombres</label>
+          <input type="text" id="nc_nombre" name="nombre" placeholder="Nombre" />
+          <label for="nc_apellido">Apellidos</label>
+          <input type="text" id="nc_apellido" name="apellido" placeholder="Apellido" />
+          <a href class="ui-shadow ui-btn ui-corner-all" id="btn_agregar_contact">Agregar Contacto</a>
+      </div>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#contact_list">Cancelar</a></li>
+        </ul>
+      </div>
+    </div>
+</div>
+
+<div data-role="page" id="nueva_direccion">
+    <div data-role="header" data-position="fixed">
+        <h1>Agregar Nueva Dirección</h1>
+    </div>
+    <div role="main" class="ui-content">
+      <div id="nd_form">
+          <label for="nd_telefono">Teléfono</label>
+          <input type="text" id="nd_telefono" name="telefono" placeholder="Número Telefónico" />
+          <label for="nd_direccion">Dirección</label>
+          <input type="text" id="nd_direccion" name="direccion" placeholder="Dirección de su Domicilio" />
+          <label for="nd_correo">Correo</label>
+          <input type="text" id="nd_correo" name="correo" placeholder="corre@electrn.co" />
+          <a href class="ui-shadow ui-btn ui-corner-all" id="btn_agregar_direccion">Agregar Dirección</a>
+      </div>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#contact_detail">Cancelar</a></li>
+        </ul>
+      </div>
+    </div>
+</div>
