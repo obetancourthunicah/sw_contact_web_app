@@ -1,0 +1,23 @@
+En este video no escucharan sonido debido a las condiciones en las 
+que fueron grabadas.
+
+Asi que seguiremos el siguiente esquema para desarrollar lo último
+que es la interfaz de seguridad en nuestro SPA de contactos.
+
+1) Crear las páginas que menejen:
+    a) splash windows --> para poder dar tiempo de verificar autenticidad (ok)
+    b) login (ok)
+    c) register (ok)
+
+2) en client.js crear los manejadores y peticiones ajax para 
+    a) verificar la validez del tocken guardado en localstorage del browser (ok)
+    b) verificar las credenciales del login y guardar el tocken devuelto (ok)
+    c) registrar a una nueva persona. (ok)
+
+
+3) Probar las peticiones y manejadores de ajax.
+    (ok)
+
+Hemos finalizado el esquema de seguridad con tockens.
+
+Gracias por Ver.

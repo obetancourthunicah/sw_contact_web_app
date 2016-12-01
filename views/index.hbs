@@ -1,4 +1,45 @@
 <!-- SPA Agendas de Contactos -->
+<div data-role="page" id="splash_page">
+  <div role="main" class="ui-content">
+    <h1>Contactos SPA v0.1</h1>
+    <h2>SW UNICAH 2016-03</h2>
+  </div>
+</div>
+
+<div data-role="page" id="login_page">
+    <div data-role="header" data-position="fixed">
+        <h1>Iniciar Sesión</h1>
+    </div>
+    <div role="main" class="ui-content">
+      <div id="lg_form">
+          <label for="lg_correo">Usuario</label>
+          <input type="email" id="lg_correo" name="correo" placeholder="correo@usuar.io" />
+          <label for="lg_password">Contraseña</label>
+          <input type="password" id="lg_password" name="password" placeholder="Contraseña" />
+          <a href class="ui-shadow ui-btn ui-corner-all" id="btn_login">Iniciar Sesión</a>
+          <a href="#register_page" class="ui-shadow ui-btn ui-corner-all" >Registrar Cuenta</a>
+      </div>
+    </div>
+</div>
+
+<div data-role="page" id="register_page">
+    <div data-role="header" data-position="fixed">
+        <h1>Nueva Cuenta</h1>
+    </div>
+    <div role="main" class="ui-content">
+      <div id="rg_form">
+          <label for="rg_correo">Usuario</label>
+          <input type="email" id="rg_correo" name="correo" placeholder="correo@usuar.io" />
+          <label for="rg_nombre">Nombre</label>
+          <input type="text" id="rg_nombre" name="nombre" placeholder="Nombre Completo" />
+          <label for="rg_password">Contraseña</label>
+          <input type="password" id="rg_password" name="password" placeholder="Contraseña" />
+          <a href class="ui-shadow ui-btn ui-corner-all" id="btn_register">Registrar Cuenta</a>
+          <a href="#login_page" class="ui-shadow ui-btn ui-corner-all">Iniciar Sesión</a>
+      </div>
+    </div>
+</div>
+
 <div data-role="page" id="contact_list">
     <div data-role="header" data-position="fixed">
         <h1>Mis Contactos</h1>
